@@ -14,7 +14,7 @@ yarpg.py [-h|-L <length> -n <numofpasswords> -t [complex|alphanumberic|all]]
 
 ```-L``` Length of the password. This is the total length of the password. The default is 8, which is ridiculously weak, so you should change this.
 
-```-n``` Number of passwords generators. The default is 3, no more, no less (Monty Python and the Holy Grail reference for those who didn't get it). Seems like a reasonable number. Feel free to use any integer you'd like. Using zero is silly.
+```-n``` Number of passwords generators. The default is 3, no more, no less (Monty Python and the Holy Grail reference for those who didn't get it). Seems like a reasonable number. Feel free to use any integer you'd like. Using zero is silly, and the program will complain if you try that.
 
 ```-t``` Type of password(s) generated. There are two types currently: complex and alphanumeric. Some password implementations are stupid and don't let you use special characters, thus, this choice. You have three options: alphanumeric, complex, and both. The default type is both, so you don't need to put that in unless you like to type a lot.
 
@@ -33,7 +33,11 @@ Alphanumberic Password #3: ljdSZN3J
 Display the help.
 ```
 $ /usr/bin/python yarpg.py -h
-usage: yarpg.py -L pwlength -n numberofpw -t type. Default passwords: 3, Default Length: 8, Default Type: both alphanumeric and complex
+usage: yarpg.py -L pwlength -n numberofpw -t type.
+
+Default passwords: 3
+Default Length: 8
+Default Type: both alphanumeric and complex
 ```
 Generate 1 alphanumeric password that's 8 characters.
 ```

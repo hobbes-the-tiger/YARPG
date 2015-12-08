@@ -17,13 +17,12 @@ def main(argv):
   pwtype = "both"
   r = random.SystemRandom() 
   typeflag = 3 # This is related to the pwtype. 
-  usage_text = "usage: yarpg.py -L pwlength -n numberofpw -t type. Default passwords: 3, Default Length: 8, Default Type: both alphanumeric and complex\n"
+  usage_text = "usage: yarpg.py -L pwlength -n numberofpw -t type.\n\nDefault passwords: 3\nDefault Length: 8\nDefault Type: both alphanumeric and complex\n"
 
   try:
      opts, args = getopt.getopt(argv,"hL:n:t:",["pwlen=","numpw=","pwtype", 'help'])  
   except getopt.GetoptError:
-    print usage_text
-    sys.exit()
+    sys.exit(usage_text)
 
   for opt, arg in opts:
     if opt == '-h':
