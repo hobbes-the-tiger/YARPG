@@ -10,17 +10,17 @@ This uses the secure random generator random.SystemRandom()
 ```
 yarpg.py [-h|-L <length> -n <numofpasswords> -t [complex|alphanumberic|all]]
 ```
--h Display the help.
+```-h``` Display the help.
 
--L Length of the password. This is the total length of the password. The default is 8, which is ridiculously weak, so you should change this.
+```-L``` Length of the password. This is the total length of the password. The default is 8, which is ridiculously weak, so you should change this.
 
--n Number of passwords generators. The default is 3, no more, no less (Monty Python and the Holy Grail reference for those who didn't get it). Seems like a reasonable number. Feel free to use any integer you'd like. Using zero is silly.
+```-n``` Number of passwords generators. The default is 3, no more, no less (Monty Python and the Holy Grail reference for those who didn't get it). Seems like a reasonable number. Feel free to use any integer you'd like. Using zero is silly.
 
--t Type of password(s) generated. There are two types currently: complex and alphanumeric. Some password implementations are stupid and don't let you use special characters, thus, this choice. You have three options: alphanumeric, complex, and both. The default type is both, so you don't need to put that in unless you like to type a lot.
+```-t``` Type of password(s) generated. There are two types currently: complex and alphanumeric. Some password implementations are stupid and don't let you use special characters, thus, this choice. You have three options: alphanumeric, complex, and both. The default type is both, so you don't need to put that in unless you like to type a lot.
 
 ###Examples
 
-1. Run the defaults, assuming the python executable is at /usr/bin.
+Run the defaults, assuming the python executable is at /usr/bin.
 ```
 $ /usr/bin/python yarpg.py
 Complex Password #1: w`$ml0BZ
@@ -30,17 +30,17 @@ Alphanumberic Password #2: imfhAmot
 Complex Password #3: VjQ&*h;7
 Alphanumberic Password #3: ljdSZN3J
 ```
-2. Display the help.
+Display the help.
 ```
 $ /usr/bin/python yarpg.py -h
 usage: yarpg.py -L pwlength -n numberofpw -t type. Default passwords: 3, Default Length: 8, Default Type: both alphanumeric and complex
 ```
-3. Generate 1 alphanumeric password that's 8 characters.
+Generate 1 alphanumeric password that's 8 characters.
 ```
 $ /usr/bin/python yarpg.py -n 1 -t alphanumeric
 Alphanumberic Password #1: D1ZaWVP7
 ```
-4. Generate 5 complex passwords that's 20 characters.
+Generate 5 complex passwords that's 20 characters.
 ```
 $ /usr/bin/python yarpg.py -L 20 -n 5 -t complex
 Complex Password #1: 'q@:+M^x,Q~:m8S<.rBP
