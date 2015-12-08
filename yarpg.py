@@ -33,6 +33,8 @@ def main(argv):
       pwlen = int(arg)
     elif opt in ("-n", "--number"):
       numpw = int(arg)
+      if numpw < 1:
+        sys.exit("Oops. You need at least one password to generate.")
     elif opt in ("-t", "--type"):
        pwtype = str(arg)
        if pwtype in "alphanumeric":
