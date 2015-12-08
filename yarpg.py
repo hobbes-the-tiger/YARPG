@@ -2,7 +2,7 @@
 #
 # yarpg.py - Yet Another Random Password Generator
 #
-# Usage: yarpg.py -L <length> -n <numofpasswords> -t [complex|alphanumberic|all]
+# Usage: yarpg.py -L <length> -n <numofpasswords> -t [complex|alphanumberic|both]
 #
 # At an opinion, but I wouldn't add a "\n" to the end of the password
 # variable - it should be the password and nothing else in the variable.
@@ -11,17 +11,18 @@ import random
 import string
 import sys
 import getopt
-import optparse
 
 
 def main(argv):
   numpw = 3
   pwlen = 8
+  pwtype = "both"
   r = random.SystemRandom() 
-  usage_text = "usage: yarpg.py -L pwlength -n numberofpw. Default passwords: 3, Default Length: 8\n"
+  typeflag = 3 # This is related to the pwtype. 
+  usage_text = "usage: yarpg.py -L pwlength -n numberofpw -t type. Default passwords: 3, Default Length: 8, Default Type: both alphanumeric and complex\n"
 
   try:
-    opts, args = getopt.getopt(argv,"hL:n:",["pwlen=","numpw=", 'help'])
+     opts, args = getopt.getopt(argv,"hL:n:t:",["pwlen=","numpw=","pwtype", 'help'])  
   except getopt.GetoptError:
     print usage_text
     sys.exit()
@@ -34,13 +35,23 @@ def main(argv):
       pwlen = int(arg)
     elif opt in ("-n", "--number"):
       numpw = int(arg)
-    #elif opt in ("-t", "--type"):
-    #   pwtype = [alphanumeric|complex|all]
-
+    elif opt in ("-t", "--type"):
+       pwtype = str(arg)
+       if pwtype in "alphanumeric":
+         typeflag = 1
+       elif pwtype in "complex":
+         typeflag = 2
+       elif pwtype in "both":
+         typeflag = 3
 
   for x in range(numpw):
-    print "Complex Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)]) 
-    print "Alphanumberic Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)]) 
-      
+    if (typeflag == 1):
+      print "Alphanumberic Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)]) 
+    elif (typeflag == 2):
+      print "Complex Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)]) 
+    elif (typeflag == 3):
+      print "Alphanumberic Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)]) 
+      print "Complex Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)]) 
+
 if __name__ == "__main__":
   main(sys.argv[1:])
