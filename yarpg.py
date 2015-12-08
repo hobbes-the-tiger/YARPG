@@ -4,8 +4,6 @@
 #
 # Usage: yarpg.py -L <length> -n <numofpasswords> -t [complex|alphanumberic|both]
 #
-# At an opinion, but I wouldn't add a "\n" to the end of the password
-# variable - it should be the password and nothing else in the variable.
 
 import random
 import string
