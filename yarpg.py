@@ -2,7 +2,7 @@
 #
 # yarpg.py - Yet Another Random Password Generator
 #
-# Usage: yarpg.py -L <length> -n <numofpasswords> -t [complex|alphanumberic|both]
+# Usage: yarpg.py -L <length> -n <numofpasswords> -t [complex|alphanumeric]
 #
 
 import random
@@ -40,8 +40,6 @@ def main(argv):
          typeflag = 1
        elif pwtype in "complex":
          typeflag = 2
-       elif pwtype in "both":
-         typeflag = 3
 
   for x in range(numpw):
     if (typeflag == 1):

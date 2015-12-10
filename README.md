@@ -8,7 +8,7 @@ This uses the secure random generator random.SystemRandom()
 
 ###Usage
 ```
-yarpg.py [-h|-L <length> -n <numofpasswords> -t [complex|alphanumberic|all]]
+yarpg.py [-h|-L <length> -n <numofpasswords> -t [complex|alphanumeric]]
 ```
 ```-h``` Display the help.
 
@@ -16,7 +16,7 @@ yarpg.py [-h|-L <length> -n <numofpasswords> -t [complex|alphanumberic|all]]
 
 ```-n``` Number of passwords generators. The default is 3, no more, no less (Monty Python and the Holy Grail reference for those who didn't get it). Seems like a reasonable number. Feel free to use any integer you'd like. Using zero is silly, and the program will complain if you try that.
 
-```-t``` Type of password(s) generated. There are two types currently: complex and alphanumeric. Some password implementations are stupid and don't let you use special characters, thus, this choice. You have three options: alphanumeric, complex, and both. The default type is both, so you don't need to put that in unless you like to type a lot.
+```-t``` Type of password(s) generated. There are two types currently: complex and alphanumeric. Some password implementations are stupid and don't let you use special characters, thus, this choice. You have three options: alphanumeric, complex, and both. The default type is both, so you won't need to define this unless you want one or the other (alphanumeric or complex). 
 
 ###Examples
 
