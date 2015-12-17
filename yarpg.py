@@ -10,15 +10,19 @@ import random
 import string
 import sys
 
+# Set the default values
 DEFAULT_PWLEN=8
 DEFAULT_NUMPW=3
+TYPE_ALPHA = 1
+TYPE_COMPLEX = 2
+TYPE_BOTH = 3
+
 
 def main(argv):
   numpw = DEFAULT_NUMPW
   pwlen = DEFAULT_PWLEN
-  pwtype = "both"
   r = random.SystemRandom() 
-  typeflag = 3 # This is related to the pwtype.
+  typeflag = TYPE_BOTH
   usage_text = "usage: yarpg.py -L pwlength -n numberofpw -t type.\n\nDefault passwords: 3\nDefault Length: 8\nDefault Type: both alphanumeric and complex\n"
 
   try:
@@ -37,11 +41,15 @@ def main(argv):
       if numpw < 1:
         sys.exit("Oops. You need at least one password to generate.")
     elif opt in ("-t", "--type"):
-       pwtype = str(arg)
-       if pwtype in "alphanumeric":
-         typeflag = 1
-       elif pwtype in "complex":
-         typeflag = 2
+       typeflag = str(arg)
+       if typeflag in "alphanumeric":
+         typeflag = TYPE_ALPHA
+       elif typeflag in "complex":
+         typeflag = TYPE_COMPLEX
+       elif typeflag in "both":
+         typeflag = TYPE_BOTH
+       else:
+         sys.exit("Oops. Type " + typeflag + " is not a valid option.")
 
   for x in range(numpw):
     if (typeflag == 1):
