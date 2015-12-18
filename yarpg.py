@@ -17,13 +17,16 @@ TYPE_ALPHA = 1
 TYPE_COMPLEX = 2
 TYPE_BOTH = 3
 
+usage_text = """usage: yarpg.py -L pwlength -n numberofpw -t type.
+Default passwords: 3
+Default Length: 8
+Default Type: both alphanumeric and complex"""
 
 def main(argv):
   numpw = DEFAULT_NUMPW
   pwlen = DEFAULT_PWLEN
   r = random.SystemRandom() 
   typeflag = TYPE_BOTH
-  usage_text = "usage: yarpg.py -L pwlength -n numberofpw -t type.\n\nDefault passwords: 3\nDefault Length: 8\nDefault Type: both alphanumeric and complex\n"
 
   try:
     opts, args = getopt.getopt(argv,"hL:n:t:",["pwlen=", "numpw=", "pwtype", "help"])  
@@ -52,11 +55,11 @@ def main(argv):
          sys.exit("Oops. Type " + typeflag + " is not a valid option.")
 
   for x in range(numpw):
-    if (typeflag == 1):
+    if typeflag == TYPE_ALPHA:
       print "Alphanumeric Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)]) 
-    elif (typeflag == 2):
+    elif typeflag == TYPE_COMPLEX:
       print "Complex Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)]) 
-    elif (typeflag == 3):
+    elif typeflag == TYPE_BOTH:
       print "Alphanumeric Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)]) 
       print "Complex Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)]) 
 
