@@ -16,16 +16,22 @@ DEFAULT_NUMPW=1
 TYPE_ALPHA = 1
 TYPE_COMPLEX = 2
 TYPE_BOTH = 3
+r = random.SystemRandom() 
 
-usage_text = """usage: yarpg.py -L pwlength -n numberofpw -t type.
+usage_text = """usage: yarpg.py -L pwlength -n numberofpw -t type
 Default passwords: 1
 Default Length: 15
 Default Type: Complex"""
 
+def generate_complex(charset, pwlen):
+  return "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)])
+
+def generate_alpha(charset, pwlen):
+  return "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)])
+
 def main(argv):
   numpw = DEFAULT_NUMPW
   pwlen = DEFAULT_PWLEN
-  r = random.SystemRandom() 
   typeflag = TYPE_COMPLEX
 
   try:
@@ -56,12 +62,12 @@ def main(argv):
 
   for x in range(numpw):
     if typeflag == TYPE_ALPHA:
-      print "Alphanumeric Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)]) 
+      print "Alphanumeric Password #" + str(x+1) + ": " + generate_alpha(string.ascii_letters + string.digits, pwlen)
     elif typeflag == TYPE_COMPLEX:
-      print "Complex Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)]) 
+      print "Complex Password #" + str(x+1) + ": " + generate_complex(string.ascii_letters + string.digits + string.punctuation, pwlen)
     elif typeflag == TYPE_BOTH:
-      print "Alphanumeric Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)]) 
-      print "Complex Password #" + str(x+1) + ": " + "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)]) 
+      print "Alphanumeric Password #" + str(x+1) + ": " + generate_alpha(string.ascii_letters + string.digits, pwlen)
+      print "Complex Password #" + str(x+1) + ": " + generate_complex(string.ascii_letters + string.digits + string.punctuation, pwlen)
 
 if __name__ == "__main__":
   main(sys.argv[1:])
