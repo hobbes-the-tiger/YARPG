@@ -34,10 +34,10 @@ Default passwords: 1
 Default Length: 12
 Default Type: both alphanumeric and complex
 ```
-Generate 1 alphanumeric password that's 8 characters.
+Generate 1 alphanumeric password that's 15 characters.
 ```
-$ /usr/bin/python yarpg.py -n 1 -t alphanumeric
-Alphanumberic Password #1: D1ZaWVP7
+$ /usr/bin/python yarpg.py -t alphanumeric
+Alphanumberic Password #1: U7e5ZkGzQ5SsG3t
 ```
 Generate 5 complex passwords that's 20 characters.
 ```
