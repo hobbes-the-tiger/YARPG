@@ -11,22 +11,22 @@ import string
 import sys
 
 # Set the default values
-DEFAULT_PWLEN=8
-DEFAULT_NUMPW=3
+DEFAULT_PWLEN=15
+DEFAULT_NUMPW=1
 TYPE_ALPHA = 1
 TYPE_COMPLEX = 2
 TYPE_BOTH = 3
 
 usage_text = """usage: yarpg.py -L pwlength -n numberofpw -t type.
-Default passwords: 3
-Default Length: 8
-Default Type: both alphanumeric and complex"""
+Default passwords: 1
+Default Length: 15
+Default Type: Complex"""
 
 def main(argv):
   numpw = DEFAULT_NUMPW
   pwlen = DEFAULT_PWLEN
   r = random.SystemRandom() 
-  typeflag = TYPE_BOTH
+  typeflag = TYPE_COMPLEX
 
   try:
     opts, args = getopt.getopt(argv,"hL:n:t:",["pwlen=", "numpw=", "pwtype", "help"])  
