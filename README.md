@@ -41,7 +41,7 @@ Alphanumberic Password #1: U7e5ZkGzQ5SsG3t
 ```
 Generate 5 complex passwords that's 20 characters.
 ```
-$ /usr/bin/python yarpg.py -L 20 -n 5 -t complex
+$ /usr/bin/python yarpg.py -L 20 -n 5 
 Complex Password #1: 'q@:+M^x,Q~:m8S<.rBP
 Complex Password #2: HA=o}!NOp9E5`S(fL]$C
 Complex Password #3: F<r(bYv!QDY!7&${n~:c
