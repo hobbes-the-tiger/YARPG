@@ -19,7 +19,7 @@ TYPE_BOTH = 3
 r = random.SystemRandom()
 
 USAGE_TEXT = """usage: yarpg.py -L pwlength -n numberofpw -t type
-Default passwords: 1
+Default number of passwords: 1
 Default Length: 15
 Default Type: Complex"""
 
