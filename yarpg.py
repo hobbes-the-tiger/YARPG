@@ -16,18 +16,15 @@ DEFAULT_NUMPW=1
 TYPE_ALPHA = 1
 TYPE_COMPLEX = 2
 TYPE_BOTH = 3
-r = random.SystemRandom() 
+r = random.SystemRandom()
 
-usage_text = """usage: yarpg.py -L pwlength -n numberofpw -t type
+USAGE_TEXT = """usage: yarpg.py -L pwlength -n numberofpw -t type
 Default passwords: 1
 Default Length: 15
 Default Type: Complex"""
 
-def generate_complex(charset, pwlen):
-  return "".join([r.choice(string.ascii_letters + string.digits + string.punctuation) for _ in xrange(pwlen)])
-
-def generate_alpha(charset, pwlen):
-  return "".join([r.choice(string.ascii_letters + string.digits) for _ in xrange(pwlen)])
+def generate_random_pw(charset, pwlen):
+  return "".join([r.choice(charset) for _ in xrange(pwlen)])
 
 def main(argv):
   numpw = DEFAULT_NUMPW
@@ -35,9 +32,9 @@ def main(argv):
   typeflag = TYPE_COMPLEX
 
   try:
-    opts, args = getopt.getopt(argv,"hL:n:t:",["pwlen=", "numpw=", "pwtype", "help"])  
+    opts, args = getopt.getopt(argv,"hL:n:t:",["pwlen=", "numpw=", "pwtype", "help"])
   except getopt.GetoptError:
-    sys.exit(usage_text)
+    sys.exit(USAGE_TEXT)
 
   for opt, arg in opts:
     if opt == '-h':
@@ -62,12 +59,12 @@ def main(argv):
 
   for x in range(numpw):
     if typeflag == TYPE_ALPHA:
-      print "Alphanumeric Password #" + str(x+1) + ": " + generate_alpha(string.ascii_letters + string.digits, pwlen)
+      print "Alphanumeric Password #" + str(x+1) + ": " + generate_random_pw(string.ascii_letters + string.digits, pwlen)
     elif typeflag == TYPE_COMPLEX:
-      print "Complex Password #" + str(x+1) + ": " + generate_complex(string.ascii_letters + string.digits + string.punctuation, pwlen)
+      print "Complex Password #" + str(x+1) + ": " + generate_random_pw(string.ascii_letters + string.digits + string.punctuation, pwlen)
     elif typeflag == TYPE_BOTH:
-      print "Alphanumeric Password #" + str(x+1) + ": " + generate_alpha(string.ascii_letters + string.digits, pwlen)
-      print "Complex Password #" + str(x+1) + ": " + generate_complex(string.ascii_letters + string.digits + string.punctuation, pwlen)
+      print "Alphanumeric Password #" + str(x+1) + ": " + generate_random_pw(string.ascii_letters + string.digits, pwlen)
+      print "Complex Password #" + str(x+1) + ": " + generate_random_pw(string.ascii_letters + string.digits + string.punctuation, pwlen)
 
 if __name__ == "__main__":
   main(sys.argv[1:])
