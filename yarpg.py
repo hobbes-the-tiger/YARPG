@@ -38,7 +38,7 @@ def main(argv):
 
   for opt, arg in opts:
     if opt == '-h':
-      print usage_text
+      print USAGE_TEXT
       sys.exit(0)
     elif opt in ("-L", "--passwordlength"):
       pwlen = int(arg)
