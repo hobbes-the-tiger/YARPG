@@ -12,14 +12,14 @@ import sys
 
 # Set the default values
 DEFAULT_PWLEN=15
-DEFAULT_NUMPW=1
+DEFAULT_NUMPW=3
 TYPE_ALPHA = 1
 TYPE_COMPLEX = 2
 TYPE_BOTH = 3
 r = random.SystemRandom()
 
 USAGE_TEXT = """usage: yarpg.py -L pwlength -n numberofpw -t type
-Default number of passwords: 1
+Default number of passwords: 3
 Default length of each password: 15 characters
 Default password type: complex"""
 
@@ -42,6 +42,8 @@ def main(argv):
       sys.exit(0)
     elif opt in ("-L", "--passwordlength"):
       pwlen = int(arg)
+      if pwlen > 10000:
+        sys.exit("Try a shorter password less than 10,000 characters.")
     elif opt in ("-n", "--number"):
       numpw = int(arg)
       if numpw < 1:
