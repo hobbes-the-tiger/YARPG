@@ -12,7 +12,7 @@ yarpg.py [-h|-L <length> -n <numofpasswords> -t [complex|alphanumeric]]
 ```
 ```-h``` Display the help.
 
-```-L``` Length of the password. This is the total length of the password. The default is 15, which is much stronger than 8 and usually accepted in most password systems. The maximum is 10,000 characters.
+```-L``` Length of the password. This is the total length of the password. The default is 15, which is much stronger than 8 and usually accepted in most password systems. There is no maximum--create as big of a password as you want.
 
 ```-n``` Number of passwords generators. By default, three password are generated at a time. However, there are times you want to have more than that generated at a time (e.g. sysadmins creating multiple accounts at once), so you can use this.
 
