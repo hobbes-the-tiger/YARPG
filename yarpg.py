@@ -20,8 +20,8 @@ r = random.SystemRandom()
 
 USAGE_TEXT = """usage: yarpg.py -L pwlength -n numberofpw -t type
 Default number of passwords: 1
-Default Length of each password: 15 characters
-Default Type: Complex"""
+Default length of each password: 15 characters
+Default password type: complex"""
 
 def generate_random_pw(charset, pwlen):
   return "".join([r.choice(charset) for _ in xrange(pwlen)])
