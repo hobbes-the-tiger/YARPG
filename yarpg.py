@@ -43,7 +43,7 @@ def main(argv):
     elif opt in ("-L", "--passwordlength"):
       pwlen = int(arg)
       if pwlen > 10000:
-        sys.exit("Try a shorter password less than 10,000 characters.")
+        sys.exit("Try a password no longer than 10,000 characters.")
     elif opt in ("-n", "--number"):
       numpw = int(arg)
       if numpw < 1:
