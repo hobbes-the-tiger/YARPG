@@ -16,7 +16,7 @@ DEFAULT_NUMPW=3
 TYPE_ALPHA = 1
 TYPE_COMPLEX = 2
 TYPE_BOTH = 3
-r = random.SystemRandom()
+RNG = random.SystemRandom()
 
 USAGE_TEXT = """usage: yarpg.py -L pwlength -n numberofpw -t type
 Default number of passwords: 3
@@ -24,7 +24,7 @@ Default length of each password: 15 characters
 Default password type: complex"""
 
 def generate_random_pw(charset, pwlen):
-  return "".join([r.choice(charset) for _ in xrange(pwlen)])
+  return "".join([RNG.choice(charset) for _ in xrange(pwlen)])
 
 def main(argv):
   numpw = DEFAULT_NUMPW
@@ -32,12 +32,12 @@ def main(argv):
   typeflag = TYPE_COMPLEX
 
   try:
-    opts, args = getopt.getopt(argv,"hL:n:t:",["pwlen=", "numpw=", "pwtype", "help"])
+    opts, _ = getopt.getopt(argv, "hL:n:t:",[" pwlen=", "numpw=", "pwtype", "help"])
   except getopt.GetoptError:
     sys.exit(USAGE_TEXT)
 
   for opt, arg in opts:
-    if opt == '-h':
+    if opt == "h":
       print USAGE_TEXT
       sys.exit(0)
     elif opt in ("-L", "--passwordlength"):
@@ -49,13 +49,13 @@ def main(argv):
     elif opt in ("-t", "--type"):
        typeflag = str(arg)
        if typeflag in "alphanumeric":
-         typeflag = TYPE_ALPHA
+          typeflag = TYPE_ALPHA
        elif typeflag in "complex":
-         typeflag = TYPE_COMPLEX
+          typeflag = TYPE_COMPLEX
        elif typeflag in "both":
-         typeflag = TYPE_BOTH
+          typeflag = TYPE_BOTH
        else:
-         sys.exit("Oops. Type " + typeflag + " is not a valid option.")
+          sys.exit("Oops. Type " + typeflag + " is not a valid option.")
 
   for x in range(numpw):
     if typeflag == TYPE_ALPHA:
