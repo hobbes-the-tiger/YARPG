@@ -18,10 +18,12 @@ TYPE_COMPLEX = 2
 TYPE_BOTH = 3
 RNG = random.SystemRandom()
 
-USAGE_TEXT = """usage: yarpg.py -L pwlength -n numberofpw -t type
-Default number of passwords: 3
+USAGE_TEXT = """usage: yarpg.py [-L pwlength -n numberofpw -t type]
+
+Default number of passwords: 3 
 Default length of each password: 15 characters
 Default password type: complex"""
+
 
 def generate_random_pw(charset, pwlen):
   return "".join([RNG.choice(charset) for _ in xrange(pwlen)])
@@ -32,7 +34,7 @@ def main(argv):
   typeflag = TYPE_COMPLEX
 
   try:
-    opts, args = getopt.getopt(argv, "hL:n:t:",["help", "pwlen=", "numpw=", "pwtype"])
+    opts, args = getopt.getopt(argv, "hL:n:t:v:",["help", "pwlen=", "numpw=", "pwtype"])
   except getopt.GetoptError:
     sys.exit(USAGE_TEXT)
 
