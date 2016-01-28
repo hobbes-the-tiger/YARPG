@@ -58,7 +58,7 @@ Complex Password #5: ve@36I@pa8=7+lxpp-ND
 
 ###Environments Tested
 
-This works on both Mac OS X 10.9.5 and Debian Linux. Please feel free to test in additonal environments and let me know if you have issues. I'd like for this to be as portable as possible.
+This works on both Mac OS X 10.9.5, Debian Linux, OpenBSD, and Windows 7. Please feel free to test in additonal environments and let me know if you have issues. I'd like for this to be as portable as possible.
 
 ###To Do
 * Make it so you can pick which special characters you can include since most password systems still have some level of limitation or suckage.
