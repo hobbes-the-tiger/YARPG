@@ -32,12 +32,12 @@ def main(argv):
   typeflag = TYPE_COMPLEX
 
   try:
-    opts, _ = getopt.getopt(argv, "hL:n:t:",[" pwlen=", "numpw=", "pwtype", "help"])
+    opts, args = getopt.getopt(argv, "hL:n:t:",["help", "pwlen=", "numpw=", "pwtype"])
   except getopt.GetoptError:
     sys.exit(USAGE_TEXT)
 
   for opt, arg in opts:
-    if opt == "h":
+    if opt in ("-h", "--help"):
       print USAGE_TEXT
       sys.exit(0)
     elif opt in ("-L", "--passwordlength"):
