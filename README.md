@@ -6,7 +6,7 @@ Enter yarpg.py - Yet Another Random Password Generator
 
 This uses the secure random generator random.SystemRandom()
 
-###Usage
+### Usage
 ```
 yarpg.py [-h|-L <length> -n <numofpasswords> -t [complex|alphanumeric]]
 ```
@@ -18,7 +18,7 @@ yarpg.py [-h|-L <length> -n <numofpasswords> -t [complex|alphanumeric]]
 
 ```-t``` Type of password(s) generated. There are two types currently: complex and alphanumeric. Some password implementations are stupid and don't let you use special characters, thus, this choice. You have three options: alphanumeric, complex, and both. The default type is complex, so if you want alphanumeric or both, you will need to define that.
 
-###Examples
+### Examples
 
 Run the defaults, assuming the python executable is at /usr/bin.
 ```
@@ -56,11 +56,11 @@ Complex Password #5: ve@36I@pa8=7+lxpp-ND
 
 ```
 
-###Environments Tested
+### Environments Tested
 
 This works on both Mac OS X 10.9.5, Debian Linux, OpenBSD, and Windows 7. Please feel free to test in additonal environments and let me know if you have issues. I'd like for this to be as portable as possible.
 
-###To Do
+### To Do
 * Make it so you can pick which special characters you can include since most password systems still have some level of limitation or suckage.
 * Better error checking. 
 * Test on additional platforms
